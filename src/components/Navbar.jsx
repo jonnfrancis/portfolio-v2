@@ -1,8 +1,10 @@
 import dayjs from "dayjs"
 
 import { navIcons, navLinks } from "#constants"
+import useWindowStore from "#store/window"
 
 const Navbar = () => {
+    const { openWindow } = useWindowStore();
     return (
         <nav>
             <div>
@@ -11,8 +13,8 @@ const Navbar = () => {
 
                 <ul>
                     {navLinks.map((item) => (
-                        <li key={item.id} className="cursor-pointer hover:underline">
-                            {item.name}
+                        <li key={item.id} className="cursor-pointer hover:underline" onClick={() => openWindow(item.type)}>
+                            <p>{item.name}</p>
                         </li>
                     )
                     )}
@@ -22,7 +24,7 @@ const Navbar = () => {
                 <ul>
                     {navIcons.map(({ id, img }) => (
                         <li key={id} className="cursor-pointer">
-                            <img src={img} alt={`icon-${id}`} />
+                            <img src={img} alt={`icon-${id}`} className="icon-hover" />
                         </li>
                     ))}
                 </ul>
