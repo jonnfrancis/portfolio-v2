@@ -77,52 +77,57 @@ const dockApps = [
 const blogPosts = [
   {
     id: 1,
-    date: "Sep 2, 2025",
+    date: "Jan 28, 2026",
     title:
-      "TypeScript Explained: What It Is, Why It Matters, and How to Master It",
-    image: "/images/blog1.png",
-    link: "https://jsmastery.com/blog/typescript-explained-what-it-is-why-it-matters-and-how-to-master-it",
+      "Black Gold? Why Bio-Slurry is Actually More Valuable than the Gas",
+    image: "https://res.cloudinary.com/dxvygt0ay/image/upload/v1769605527/sdqkqx4ptorze729f6wy.jpg",
+    link: "https://www.bioafrisolns.org/blogs/black-gold-why-bio-slurry-is-actually-more-valuable-than-the-gas",
   },
   {
     id: 2,
-    date: "Aug 28, 2025",
-    title: "The Ultimate Guide to Mastering Three.js for 3D Development",
-    image: "/images/blog2.png",
-    link: "https://jsmastery.com/blog/the-ultimate-guide-to-mastering-three-js-for-3d-development",
+    date: "Jan 02, 2026",
+    title:
+      "Black Gold? Why Bio-Slurry is Actually More Valuable than the Gas",
+    image: "https://res.cloudinary.com/dxvygt0ay/image/upload/v1758642998/tdpy7kfirp9ornq7fmyc.jpg",
+    link: "https://www.bioafrisolns.org/blogs/black-gold-why-bio-slurry-is-actually-more-valuable-than-the-gas",
   },
   {
     id: 3,
-    date: "Aug 15, 2025",
-    title: "The Ultimate Guide to Mastering GSAP Animations",
-    image: "/images/blog3.png",
-    link: "https://jsmastery.com/blog/the-ultimate-guide-to-mastering-gsap-animations",
+    date: "Dec 01, 2025",
+    title: "BioAfri Solns Shines at Ignite Kenya Startup Challenge",
+    image: "https://res.cloudinary.com/dxvygt0ay/image/upload/v1763455205/ub4re2cxrvqlj0tcvlyo.jpg",
+    link: "https://www.bioafrisolns.org/blogs/bioafri-solns-shines-at-ignite-kenya-startup-challenge-innovation-impact-youth-entrepreneurship",
   },
 ];
 
 const techStack = [
   {
     category: "Frontend",
-    items: ["React.js", "Next.js", "TypeScript"],
-  },
-  {
-    category: "Mobile",
-    items: ["React Native", "Expo"],
+    items: ["React.js", "Next.js", "TypeScript", "Vanilla.js" ],
   },
   {
     category: "Styling",
     items: ["Tailwind CSS", "Sass", "CSS"],
   },
   {
+    category: "UI/UX Design",
+    items: ["Figma", "Canva", "Dribbble"],
+  },
+  {
     category: "Backend",
-    items: ["Node.js", "Express", "NestJS", "Hono"],
+    items: ["Django", "Node.js", "Flask", "Jaclang"],
+  },
+  {
+    category: "Motion & 3D",
+    items: ["GSAP", "Framer Motion", "Lottie", "Three.js"],
   },
   {
     category: "Database",
-    items: ["MongoDB", "PostgreSQL"],
+    items: ["MongoDB", "PostgreSQL", "Prisma"],
   },
   {
     category: "Dev Tools",
-    items: ["Git", "GitHub", "Docker"],
+    items: ["Git", "GitHub", "Docker", "Coolify"],
   },
 ];
 
@@ -132,28 +137,28 @@ const socials = [
     text: "Github",
     icon: "/icons/github.svg",
     bg: "#f4656b",
-    link: "https://github.com/JavaScript-Mastery-Pro",
+    link: "https://github.com/jonnfrancis",
   },
   {
     id: 2,
-    text: "Platform",
+    text: "Instagram",
     icon: "/icons/atom.svg",
     bg: "#4bcb63",
-    link: "https://jsmastery.com/",
+    link: "https://instagram.com/johnfrancis.dev",
   },
   {
     id: 3,
     text: "Twitter/X",
     icon: "/icons/twitter.svg",
     bg: "#ff866b",
-    link: "https://x.com/jsmasterypro",
+    link: "https://x.com/jonnfrancis7",
   },
   {
     id: 4,
     text: "LinkedIn",
     icon: "/icons/linkedin.svg",
     bg: "#05b6f6",
-    link: "https://www.linkedin.com/company/javascriptmastery/posts/?feedView=all",
+    link: "https://linkedin.com/in/john-francis-732259211",
   },
 ];
 
@@ -188,19 +193,19 @@ const photosLinks = [
 const gallery = [
   {
     id: 1,
-    img: "/images/gal1.png",
+    img: "/images/gal1.JPG",
   },
   {
     id: 2,
-    img: "/images/gal2.png",
+    img: "/images/gal3.JPG",
   },
   {
     id: 3,
-    img: "/images/gal3.png",
+    img: "/images/gal2.jpg",
   },
   {
     id: 4,
-    img: "/images/gal4.png",
+    img: "/images/gal4.jpg",
   },
 ];
 
@@ -282,7 +287,7 @@ const WORK_LOCATION = {
       icon: "/images/folder.png",
       kind: "folder",
       position: "top-52 right-80",
-      windowPosition: "top-[20vh] left-7",
+      windowPosition: "top-[25vh] left-7",
       children: [
         {
           id: 1,
@@ -335,7 +340,7 @@ const WORK_LOCATION = {
       icon: "/images/folder.png",
       kind: "folder",
       position: "top-10 left-80",
-      windowPosition: "top-[33vh] left-7",
+      windowPosition: "top-[40vh] left-7",
       children: [
         {
           id: 1,
@@ -397,16 +402,16 @@ const ABOUT_LOCATION = {
       kind: "file",
       fileType: "img",
       position: "top-10 left-5",
-      imageUrl: "/images/adrian.jpg",
+      imageUrl: "/images/johnfrancis.jpg",
     },
     {
       id: 2,
-      name: "casual-me.png",
+      name: "graduant-me.png",
       icon: "/images/image.png",
       kind: "file",
       fileType: "img",
       position: "top-28 right-72",
-      imageUrl: "/images/adrian-2.jpg",
+      imageUrl: "/images/johnfrancis-2.png",
     },
     {
       id: 3,
@@ -415,7 +420,7 @@ const ABOUT_LOCATION = {
       kind: "file",
       fileType: "img",
       position: "top-52 left-80",
-      imageUrl: "/images/adrian-3.jpeg",
+      imageUrl: "/images/johnfrancis-3.jpg",
     },
     {
       id: 4,
@@ -425,12 +430,12 @@ const ABOUT_LOCATION = {
       fileType: "txt",
       position: "top-60 left-5",
       subtitle: "Meet the Developer Behind the Code",
-      image: "/images/adrian.jpg",
+      image: "/images/johnfrancis.jpg",
       description: [
-        "Hey! I’m Adrian 👋, a web developer who enjoys building sleek, interactive websites that actually work well.",
-        "I specialize in JavaScript, React, and Next.js—and I love making things feel smooth, fast, and just a little bit delightful.",
-        "I’m big on clean UI, good UX, and writing code that doesn’t need a search party to debug.",
-        "Outside of dev work, you'll find me tweaking layouts at 2AM, sipping overpriced coffee, or impulse-buying gadgets I absolutely convinced myself I needed 😅",
+        "Jambo! I’m John Francis, a software engineer / web developer from Kenya specializing in AI-powered web experiences for startups and growing businesses.",
+        "I specialize in building AI-integrated backends paired with animated, high-performance frontends using tools like React, Next.js, GSAP, and Jaclang. ",
+        "I focus on outcomes over hours: faster launches, smarter workflows, and products that feel premium while staying maintainable under the hood.",
+        "Outside of dev work, you'll find me cycling, gaming, experimenting with AI product ideas, watching tech videos & anime or impulse-buying gadgets I absolutely convinced myself I needed 😅",
       ],
     },
   ],
@@ -469,7 +474,7 @@ const TRASH_LOCATION = {
       kind: "file",
       fileType: "img",
       position: "top-10 left-10",
-      imageUrl: "/images/trash-1.png",
+      imageUrl: "/images/trash1.png",
     },
     {
       id: 2,
@@ -478,7 +483,7 @@ const TRASH_LOCATION = {
       kind: "file",
       fileType: "img",
       position: "top-40 left-80",
-      imageUrl: "/images/trash-2.png",
+      imageUrl: "/images/trash2.png",
     },
   ],
 };
