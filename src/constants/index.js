@@ -230,11 +230,11 @@ const WORK_LOCATION = {
     // ▶ Project 1
     {
       id: 5,
-      name: "Bioafri Solns Ecommerce Website Application",
+      name: "BioafriSolns Ecommerce Web App",
       icon: "/images/folder.png",
       kind: "folder",
       position: "top-10 left-5", // icon position inside Finder
-      windowPosition: "top-[5vh] left-5", // optional: Finder window position
+      windowPosition: "top-[20vh] left-7", // optional: Finder window position
       children: [
         {
           id: 1,
@@ -244,7 +244,7 @@ const WORK_LOCATION = {
           fileType: "txt",
           position: "top-5 left-10",
           description: [
-            "The BioAfri Solns website is a clean, modern platform built to showcase sustainable bioenergy and bio-catalyst solutions for homes, industries, and communities.",
+            "The BioAfrisolns website is a clean, modern platform built to showcase sustainable bioenergy and bio-catalyst solutions for homes, industries, and communities.",
             "Rather than a static corporate site, it focuses on storytelling using motion, video, and strong visuals to communicate impact, innovation, and environmental responsibility.",
             "The experience guides users through BioAfri’s mission, products, and real-world applications in a way that feels informative, credible, and forward-thinking.",
             "It is built with Next.js and Tailwind CSS, optimized for performance, responsiveness, and smooth transitions, with a strong emphasis on clarity, accessibility, and brand trust."
@@ -283,11 +283,11 @@ const WORK_LOCATION = {
     // ▶ Project 2
     {
       id: 6,
-      name: "Urbankikapu Ecommerce Website Application",
+      name: "UrbanKikapu Ecommerce Web App",
       icon: "/images/folder.png",
       kind: "folder",
       position: "top-52 right-80",
-      windowPosition: "top-[25vh] left-7",
+      windowPosition: "top-[40vh] left-7",
       children: [
         {
           id: 1,
@@ -341,7 +341,7 @@ const WORK_LOCATION = {
       icon: "/images/folder.png",
       kind: "folder",
       position: "top-10 left-80",
-      windowPosition: "top-[40vh] left-7",
+      windowPosition: "top-[60vh] left-7",
       children: [
         {
           id: 1,
