@@ -33,7 +33,7 @@ const MobileText = () => {
         {subtitle ? <h3 className="text-lg font-semibold">{subtitle}</h3> : null}
 
         {hasDescription ? (
-          <div className="space-y-3 leading-relaxed text-base text-gray-800">
+          <div className="space-y-3 leading-relaxed text-base text-gray-800 overflow-y-auto">
             {description.map((p, i) => (
               <p key={i}>{p}</p>
             ))}
