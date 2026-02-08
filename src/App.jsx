@@ -1,27 +1,36 @@
 import gsap from "gsap"
 import { Draggable } from "gsap/Draggable"
+import { useEffect, useState } from "react"
 
-import { Navbar, Welcome, Dock, Home } from "#components"
-import { Terminal, Safari, Resume, Finder, Text, ImageWindowContent, Contact, Photos } from "#windows"
+import { Navbar, Welcome, MobileWelcome, Dock, Home, MobileDock } from "#components"
+import { Terminal, MobileTerminal, MobileImage, Safari, Resume, Finder, Text, MobileText, ImageWindowContent, Contact, Photos, MobileContact, MobileSafari, MobilePhotos, MobileFinder, MobileResume, MobileHome } from "#windows"
 
 gsap.registerPlugin(Draggable)
 
 const App = () => {
+  const [mobile, setMobile] = useState(() => window.innerWidth <= 768)
+
+  useEffect(() => {
+    const handleResize = () => setMobile(window.innerWidth <= 768)
+    window.addEventListener("resize", handleResize)
+    return () => window.removeEventListener("resize", handleResize)
+  }, [])
+
   return (
     <main>
       <Navbar />
-      <Welcome />
-      <Dock />
+      {mobile ? <MobileWelcome /> : <Welcome />}
+      {mobile ? <MobileDock /> : <Dock />}
 
-      <Terminal />
-      <Safari />
-      <Resume />
-      <Finder />
-      <Text />
-      <ImageWindowContent />
-      <Contact />
-      <Home />
-      <Photos />
+      {mobile ? <MobileTerminal /> : <Terminal />}
+      {mobile ? <MobileSafari /> : <Safari />}
+      {mobile ? <MobileResume /> : <Resume />}
+      {mobile ? <MobileFinder /> : <Finder />}
+      {mobile ? <MobileText /> : <Text />}
+      {mobile ? <MobileImage /> : <ImageWindowContent />}
+      {mobile ? <MobileContact /> : <Contact />}
+      {mobile ? <MobileHome /> : <Home />}
+      {mobile ? <MobilePhotos /> : <Photos />}
     </main>
   )
 }

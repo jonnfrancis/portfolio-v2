@@ -194,18 +194,22 @@ const gallery = [
   {
     id: 1,
     img: "/images/gal1.JPG",
+    tags: ["Memories", "People"],
   },
   {
     id: 2,
     img: "/images/gal3.JPG",
+    tags: ["Favorites", "Places"],
   },
   {
     id: 3,
     img: "/images/gal2.jpg",
+    tags: ["Places", "Favorites"],
   },
   {
     id: 4,
     img: "/images/gal4.jpg",
+    tags: ["Memories", "People"]
   },
 ];
 
@@ -301,7 +305,7 @@ const WORK_LOCATION = {
             "The project focuses on delivering a premium, trust-driven shopping experience, combining clean UI, smooth animations, and a mobile-first design inspired by platforms like Amazon and Jumia.",
             "At its core, UrbanKikapu supports real-world buying behavior with features such as Pay on Delivery, WhatsApp-assisted ordering, and flexible payment options including M-Pesa, Airtel Money, and card payments.",
             "From a technical standpoint, the platform was designed and developed using a modern web stack, with performance, scalability, and SEO baked in from the start to support organic growth and fast load times.",
-            "Beyond just selling products, UrbanKikapu was built as a scalable foundation—ready to expand into multiple categories, integrate customer reviews, product recommendations, and downloadable datasheets for informed purchasing decisions.",
+            "Beyond just selling products, UrbanKikapu was built as a scalable foundation ready to expand into multiple categories, integrate customer reviews, product recommendations, and downloadable datasheets for informed purchasing decisions.",
           ],
         },
         {
@@ -354,7 +358,7 @@ const WORK_LOCATION = {
             "StoreIt is a modern cloud storage platform designed to make file management simple, secure, and accessible from anywhere.",
             "It uses OTP-based authentication powered by Appwrite, allowing users to sign in securely without traditional passwords.",
             "Built with Next.js and Tailwind CSS, StoreIt delivers a sleek, responsive interface with fast performance and a clean, modern design.",
-            "Users can upload, store, and preview multiple file types—including images, audio, documents, and unsupported formats—all from a personalized dashboard.",
+            "Users can upload, store, and preview multiple file types, including images, audio, documents, and unsupported formats, all from a personalized dashboard.",
             "Each user starts with 2GB of free storage and can clearly see how their space is distributed across documents, media, images, and other file types.",
             "StoreIt also supports secure file sharing via email, making collaboration and content distribution effortless."
           ],
@@ -511,4 +515,15 @@ const WINDOW_CONFIG = {
   imgfile: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
 };
 
-export { INITIAL_Z_INDEX, WINDOW_CONFIG };
+const SLIDE_CONFIG = {
+  mobile_terminal: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
+  mobile_contact: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
+  mobile_safari: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
+  mobile_txtfile: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
+  mobile_imgfile: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
+  mobile_photos: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
+  mobile_finder: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
+  mobile_resume: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
+};
+
+export { INITIAL_Z_INDEX, WINDOW_CONFIG, SLIDE_CONFIG };
