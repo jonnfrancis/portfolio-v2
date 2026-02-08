@@ -26,7 +26,7 @@ const MobileWelcome = () => {
   return (
     <section id="welcome-mobile" ref={container} className="px-6 py-12 flex flex-col justify-center min-h-[60vh]">
       <div className="overflow-hidden">
-        <p className="reveal-text text-sm uppercase tracking-[0.2em] text-neutral-500 font-semibold mb-2">
+        <p className="reveal-text text-sm uppercase tracking-[0.2em] text-black/90 font-semibold mb-2">
           Creative Developer
         </p>
       </div>
@@ -46,7 +46,7 @@ const MobileWelcome = () => {
         <p className="reveal-sub text-lg leading-snug text-neutral-800 font-medium">
           Building high-fidelity digital systems.
         </p>
-        <p className="reveal-sub text-sm text-neutral-500 leading-relaxed">
+        <p className="reveal-sub text-sm text-black/90 leading-relaxed">
           Optimized for touch. Engineered for performance. Explore via the dock below.
         </p>
       </div>

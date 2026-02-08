@@ -13,6 +13,17 @@ body {
   background-position: center;
 }
 
+/* Mobile wallpaper: swap image for small viewports */
+@media (max-width: 768px) {
+  html,
+  body {
+    background-image: url("/images/wallpaper-mobile01.jpeg");
+    /* keep same sizing behavior for consistent look */
+    background-size: cover;
+    background-position: center;
+  }
+}
+
 @theme {
   --font-georama: "Georama", sans-serif;
   --font-roboto: "Roboto Mono", monospace;
