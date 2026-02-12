@@ -20,8 +20,7 @@ const MobileResume = () => {
 
   const activeFileData = slides["mobile_resume"]?.data;
   
-  const fileUrl = activeFileData?.path ? `/files/${activeFileData.path}` : "/files/Resume.pdf";
-  console.log(fileUrl)
+  const fileUrl = activeFileData?.path ? `/files/${activeFileData.path}` : "/files/resume.pdf";
 
   useEffect(() => {
     const el = containerRef.current

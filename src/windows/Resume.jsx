@@ -17,7 +17,7 @@ const Resume = () => {
 
   const activeFileData = windows["resume"]?.data;
 
-  const fileUrl = activeFileData?.path ? `/files/${activeFileData.path}` : "/files/Resume.pdf";
+  const fileUrl = activeFileData?.path ? `/files/${activeFileData.path}` : "/files/resume.pdf";
   
   return (
     <>

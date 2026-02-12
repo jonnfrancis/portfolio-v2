@@ -458,7 +458,7 @@ const RESUME_LOCATION = {
   children: [
     {
       id: 1,
-      name: "Resume.pdf",
+      name: "resume.pdf",
       icon: "/images/pdf.png",
       kind: "file",
       fileType: "pdf",
@@ -519,7 +519,7 @@ const EDUCATION_LOCATION = {
           position: "top-10 left-5",
           fileType: "pdf",
           // you can add `href` if you want to open a hosted resume
-          href: "/files/CS50AI-Cert.pdf",
+          // href: "/files/CS50AI-Cert.pdf",
         },
         {
           id: 2,
@@ -569,7 +569,7 @@ const EDUCATION_LOCATION = {
           position: "top-10 left-5",
           fileType: "pdf",
           // you can add `href` if you want to open a hosted resume
-          href: "/files/KU-cert-transcripts.pdf",
+          // href: "/files/KU-cert-transcripts.pdf",
         },
       ]
     }
