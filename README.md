@@ -1,7 +1,7 @@
-# John Francis — Full-Stack Portfolio
+# John Francis | Full-Stack Portfolio
 
 A macOS-inspired interactive portfolio built with modern web technologies, featuring a desktop-like UI with draggable windows, a Finder-style file browser, and smooth animations.
-
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/jonnfrancis/portfolio-v2)
 ---
 
 ## Tech Stack
