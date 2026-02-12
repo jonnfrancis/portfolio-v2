@@ -94,6 +94,7 @@ import React, { useMemo, useState } from 'react'
           <h2 id="mobile-photos-title" className="text-base font-medium">
             Gallery
           </h2>
+          <div></div>
         </div>
   
         <div className="px-4 pb-6">
@@ -168,7 +169,7 @@ import React, { useMemo, useState } from 'react'
                     className="w-full h-40 object-cover"
                     loading="lazy"
                     decoding="async"
-                    fetchpriority={index < 2 ? 'high' : 'low'}
+                    fetchPriority={index < 2 ? 'high' : 'low'}
                   />
                 </button>
               ))}

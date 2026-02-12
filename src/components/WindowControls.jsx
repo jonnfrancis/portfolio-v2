@@ -25,7 +25,7 @@ const WindowControls = ({ target, storeType = 'window' }) => {
         <button
           aria-label="close"
           onClick={(e) => { e.stopPropagation(); handleClose(); }}
-          className="w-8 h-8 rounded-full bg-red-400/90 hover:bg-red-400/100 flex items-center justify-center shadow-sm"
+          className="w-8 h-8 rounded-full bg-neutral-500/80  flex items-center justify-center shadow-sm"
         >
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <line x1="18" y1="6" x2="6" y2="18"></line>

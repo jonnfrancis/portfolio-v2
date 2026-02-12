@@ -42,12 +42,12 @@ const MobileWelcome = () => {
         </div>
       </div>
       
-      <div className="mt-12 space-y-4 max-w-[240px]">
+      <div className="mt-8 space-y-4 max-w-60">
         <p className="reveal-sub text-lg leading-snug text-neutral-800 font-medium">
           Building high-fidelity digital systems.
         </p>
         <p className="reveal-sub text-sm text-black/90 leading-relaxed">
-          Optimized for touch. Engineered for performance. Explore via the dock below.
+          Optimized for touch. Engineered for performance. Explore via the docks below. Drag down or tap X to close tabs.
         </p>
       </div>
     </section>

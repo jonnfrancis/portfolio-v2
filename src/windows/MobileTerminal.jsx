@@ -1,7 +1,7 @@
 import { WindowControls } from "#components"
 import { techStack } from "#constants"
 import { SlideWrapper } from "#hoc"
-import { Check, Flag } from "lucide-react"
+import { Check, Flag, Terminal } from "lucide-react"
 
 const MobileTerminal = () => {
   const stacks = Array.isArray(techStack) ? techStack : []
@@ -19,9 +19,10 @@ const MobileTerminal = () => {
       >
         <WindowControls target="mobile_terminal" storeType="slide" />
         <h2 id="mobile-terminal-title" className="text-base font-medium">Tech Stack</h2>
+        <Terminal className="icon" aria-hidden="true" focusable="false" />
       </div>
 
-      <div className="techstack p-4 overflow-auto">
+      <div className="techstack p-4 overflow-auto bg-white/50">
         <p aria-live="polite">
           <span className="font-bold"><code>@johnfrancis %</code> </span>
           <code>show tech stack</code>

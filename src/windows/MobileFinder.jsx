@@ -41,7 +41,7 @@ const MobileFinder = () => {
                   type="button"
                   onClick={() => setActiveLocation(item)}
                   className={clsx(
-                    'flex items-center gap-2 px-3 py-2 rounded-lg transition-colors',
+                    'flex items-center gap-1 px-3 py-2 rounded-lg transition-colors',
                     'focus:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:ring-offset-2 focus-visible:ring-offset-black/20',
                     isActive ? 'bg-blue-50 text-blue-900' : 'hover:bg-white/5'
                   )}

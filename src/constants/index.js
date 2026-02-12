@@ -422,7 +422,7 @@ const ABOUT_LOCATION = {
     },
     {
       id: 3,
-      name: "conference-me.png",
+      name: "casual-me.png",
       icon: "/images/image.png",
       kind: "file",
       fileType: "img",
@@ -476,7 +476,7 @@ const TRASH_LOCATION = {
   children: [
     {
       id: 1,
-      name: "trash1.png",
+      name: "Prev Portfolio.png",
       icon: "/images/image.png",
       kind: "file",
       fileType: "img",
@@ -485,7 +485,7 @@ const TRASH_LOCATION = {
     },
     {
       id: 2,
-      name: "trash2.png",
+      name: "Prev Portfolio.png",
       icon: "/images/image.png",
       kind: "file",
       fileType: "img",

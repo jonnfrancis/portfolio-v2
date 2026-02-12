@@ -28,7 +28,7 @@ const MobileImage = () => {
               className="w-full h-auto max-h-[70vh] object-contain rounded"
               decoding="async"
               loading="eager"
-              fetchpriority="high"
+              fetchPriority="high"
             />
           </div>
         ) : (

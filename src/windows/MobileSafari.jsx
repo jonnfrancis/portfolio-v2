@@ -20,6 +20,7 @@ const MobileSafari = () => {
         <h2 id="mobile-safari-title" className="text-base font-medium">
           Articles
         </h2>
+        <div></div>
       </div>
 
       <div className="px-4 pb-6">
@@ -36,7 +37,7 @@ const MobileSafari = () => {
             {blogPosts.map((post, idx) => (
               <li
                 key={post.id ?? `post-${idx}`}
-                className="rounded-lg overflow-hidden bg-gradient-to-tr from-white/8 to-white/4 shadow-sm"
+                className="rounded-lg overflow-hidden bg-linear-to-tr from-white/8 to-white/4 shadow-sm"
               >
                 <a
                   href={post.link}

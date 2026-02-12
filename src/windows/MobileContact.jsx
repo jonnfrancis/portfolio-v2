@@ -2,6 +2,7 @@ import React from 'react'
 import { WindowControls } from '#components'
 import { socials } from '#constants'
 import { SlideWrapper } from '#hoc'
+import { Phone } from 'lucide-react'
 
 const MobileContact = () => {
   const hasSocials = Array.isArray(socials) && socials.length > 0
@@ -13,12 +14,13 @@ const MobileContact = () => {
       {/* Header: neutral visuals; SlideWrapper owns the backdrop */}
       <div
         id="window-header"
-        className="w-full flex items-center justify-between px-4 py-3"
+        className="w-full flex items-center justify-between px-4 py-3 bg-white/50"
         role="region"
         aria-labelledby="mobile-contact-title"
       >
         <WindowControls target="mobile_contact" storeType="slide" />
         <h2 id="mobile-contact-title" className="text-base font-medium">Contact Me</h2>
+        <Phone className="icon" aria-hidden="true" focusable="false" />
       </div>
 
       <div className="p-5 space-y-5 overflow-auto">

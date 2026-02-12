@@ -3,7 +3,7 @@ import { locations } from '#constants'
 import useMobileLocationStore from '#store/mobile-location'
 import useSlideStore from '#store/slide'
 import { useGSAP } from '@gsap/react'
-import { Draggable } from 'gsap/Draggable'
+import gsap from 'gsap'
 
 const MobileHome = () => {
     const containerRef = useRef(null)
@@ -19,56 +19,17 @@ const MobileHome = () => {
         }
     }, [])
 
-    // Prefer reduced-motion: disable inertia if requested
-    const prefersReducedMotion = typeof window !== 'undefined'
-        ? window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches
-        : false
-
-    useGSAP(() => {
-        const el = containerRef.current
-        if (!el) return
-
-        let inst = []
-
-        try {
-            inst = Draggable.create(el, {
-                type: 'y',
-                edgeResistance: 0.85,
-                inertia: !prefersReducedMotion,
-                bounds: { minY: -120, maxY: 120 },
-                allowContextMenu: true,
-                allowNativeTouchScrolling: true,
-                minimumMovement: 6, // avoid accidental drags on taps
-                onDragStart(e) {
-                    // If drag starts on a button, let the tap/click pass through (do not start drag)
-                    const target = e.target
-                    if (target && (target.closest('button') || target.closest('[data-no-drag]'))) {
-                        // cancel this drag
-                        this.endDrag()
-                    }
-                },
-            })
-        } catch (e) {
-            // noop
-            console.warn('Draggable init failed:', e)
-        }
-
-        return () => {
-            try {
-                if (Array.isArray(inst) && inst.length && inst[0]) {
-                    inst[0].kill()
-                }
-            } catch (e) {
-                // noop
-                console.warn('Draggable cleanup failed:', e)
-            }
-        }
-    }, [prefersReducedMotion])
-
     const handleOpen = (loc) => {
         setActiveLocation(loc)
         openSlide('mobile_finder', loc)
     }
+
+    useGSAP(() => {
+        const tl = gsap.timeline({ defaults: { ease: 'expo.out' } })
+        if (!containerRef.current) return
+
+        tl.fromTo(containerRef.current, { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, delay: 1.4 })
+    }, { scope: containerRef })
 
     // If no locations, render nothing (or an empty state, depending on design)
     if (!locs.length) return null
@@ -76,7 +37,7 @@ const MobileHome = () => {
     return (
         <div
             ref={containerRef}
-            className="fixed left-1/2 bottom-30 -translate-x-1/2 z-40 w-[92%] max-w-lg"
+            className="fixed left-1/2 bottom-30 -translate-x-1/2 z-40 w-[92%] max-w-lg "
             style={{ touchAction: 'pan-y' }}
             role="region"
             aria-label="App Dock"
@@ -94,17 +55,17 @@ const MobileHome = () => {
                             aria-label={`Open ${label}`}
                             data-no-drag
                         >
-                            <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center overflow-hidden">
+                            <div className="w-12 h-12 rounded-xl bg-white flex items-center justify-center overflow-hidden">
                                 <img
                                     src={loc.icon}
-                                    alt=""
+                                    alt="Portfolio Icons"
                                     aria-hidden="true"
                                     className="w-8 h-8 object-contain"
                                     loading="lazy"
                                     decoding="async"
                                 />
                             </div>
-                            <span className="text-[11px] text-white/90 truncate w-16 text-center">{loc.name}</span>
+                            <span className="text-[11px] text-neutral-800 truncate w-16 text-center">{loc.name}</span>
                         </button>
                     )
                 })}
