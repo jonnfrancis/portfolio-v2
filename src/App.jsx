@@ -2,6 +2,7 @@ import gsap from "gsap"
 import { Draggable } from "gsap/Draggable"
 import { useEffect, useState } from "react"
 import { Analytics } from "@vercel/analytics/react"
+import { SpeedInsights } from "@vercel/speed-insights/react"
 
 import { Navbar, Welcome, MobileWelcome, Dock, Home, MobileDock } from "#components"
 import { Terminal, MobileTerminal, MobileImage, Safari, Resume, Finder, Text, MobileText, ImageWindowContent, Contact, Photos, MobileContact, MobileSafari, MobilePhotos, MobileFinder, MobileResume, MobileHome } from "#windows"
@@ -33,6 +34,7 @@ const App = () => {
       {mobile ? <MobileHome /> : <Home />}
       {mobile ? <MobilePhotos /> : <Photos />}
       <Analytics />
+      <SpeedInsights />
     </main>
   )
 }
