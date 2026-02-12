@@ -78,24 +78,25 @@ const blogPosts = [
   {
     id: 1,
     date: "Jan 28, 2026",
-    title:
-      "Black Gold? Why Bio-Slurry is Actually More Valuable than the Gas",
-    image: "https://res.cloudinary.com/dxvygt0ay/image/upload/v1769605527/sdqkqx4ptorze729f6wy.jpg",
+    title: "Black Gold? Why Bio-Slurry is Actually More Valuable than the Gas",
+    image:
+      "https://res.cloudinary.com/dxvygt0ay/image/upload/v1769605527/sdqkqx4ptorze729f6wy.jpg",
     link: "https://www.bioafrisolns.org/blogs/black-gold-why-bio-slurry-is-actually-more-valuable-than-the-gas",
   },
   {
     id: 2,
     date: "Jan 02, 2026",
-    title:
-      "Black Gold? Why Bio-Slurry is Actually More Valuable than the Gas",
-    image: "https://res.cloudinary.com/dxvygt0ay/image/upload/v1758642998/tdpy7kfirp9ornq7fmyc.jpg",
+    title: "Black Gold? Why Bio-Slurry is Actually More Valuable than the Gas",
+    image:
+      "https://res.cloudinary.com/dxvygt0ay/image/upload/v1758642998/tdpy7kfirp9ornq7fmyc.jpg",
     link: "https://www.bioafrisolns.org/blogs/black-gold-why-bio-slurry-is-actually-more-valuable-than-the-gas",
   },
   {
     id: 3,
     date: "Dec 01, 2025",
     title: "BioAfri Solns Shines at Ignite Kenya Startup Challenge",
-    image: "https://res.cloudinary.com/dxvygt0ay/image/upload/v1763455205/ub4re2cxrvqlj0tcvlyo.jpg",
+    image:
+      "https://res.cloudinary.com/dxvygt0ay/image/upload/v1763455205/ub4re2cxrvqlj0tcvlyo.jpg",
     link: "https://www.bioafrisolns.org/blogs/bioafri-solns-shines-at-ignite-kenya-startup-challenge-innovation-impact-youth-entrepreneurship",
   },
 ];
@@ -103,7 +104,7 @@ const blogPosts = [
 const techStack = [
   {
     category: "Frontend",
-    items: ["React.js", "Next.js", "TypeScript", "Vanilla.js" ],
+    items: ["React.js", "Next.js", "TypeScript", "Vanilla.js"],
   },
   {
     category: "Styling",
@@ -209,7 +210,7 @@ const gallery = [
   {
     id: 4,
     img: "/images/gal4.jpg",
-    tags: ["Memories", "People"]
+    tags: ["Memories", "People"],
   },
 ];
 
@@ -251,7 +252,7 @@ const WORK_LOCATION = {
             "The BioAfrisolns website is a clean, modern platform built to showcase sustainable bioenergy and bio-catalyst solutions for homes, industries, and communities.",
             "Rather than a static corporate site, it focuses on storytelling using motion, video, and strong visuals to communicate impact, innovation, and environmental responsibility.",
             "The experience guides users through BioAfri’s mission, products, and real-world applications in a way that feels informative, credible, and forward-thinking.",
-            "It is built with Next.js and Tailwind CSS, optimized for performance, responsiveness, and smooth transitions, with a strong emphasis on clarity, accessibility, and brand trust."
+            "It is built with Next.js and Tailwind CSS, optimized for performance, responsiveness, and smooth transitions, with a strong emphasis on clarity, accessibility, and brand trust.",
           ],
         },
         {
@@ -360,7 +361,7 @@ const WORK_LOCATION = {
             "Built with Next.js and Tailwind CSS, StoreIt delivers a sleek, responsive interface with fast performance and a clean, modern design.",
             "Users can upload, store, and preview multiple file types, including images, audio, documents, and unsupported formats, all from a personalized dashboard.",
             "Each user starts with 2GB of free storage and can clearly see how their space is distributed across documents, media, images, and other file types.",
-            "StoreIt also supports secure file sharing via email, making collaboration and content distribution effortless."
+            "StoreIt also supports secure file sharing via email, making collaboration and content distribution effortless.",
           ],
         },
         {
@@ -495,12 +496,93 @@ const TRASH_LOCATION = {
   ],
 };
 
+const EDUCATION_LOCATION = {
+  id: 5,
+  type: "education",
+  name: "Education",
+  icon: "/icons/user.svg",
+  kind: "folder",
+  children: [
+    {
+      id: 1,
+      name: "Harvard University",
+      icon: "/images/folder.png",
+      kind: "folder",
+      position: "top-10 left-5",
+      windowPosition: "top-[60vh] left-7",
+      children: [
+        {
+          id: 1,
+          name: "CS50AI-Cert.pdf",
+          icon: "/images/pdf.png",
+          kind: "file",
+          position: "top-10 left-5",
+          fileType: "pdf",
+          // you can add `href` if you want to open a hosted resume
+          href: "/files/CS50AI-Cert.pdf",
+        },
+        {
+          id: 2,
+          name: "CS50W-Cert.pdf",
+          icon: "/images/pdf.png",
+          kind: "file",
+          position: "top-52 right-80",
+          fileType: "pdf",
+          // you can add `href` if you want to open a hosted resume
+          // href: "/your/resume/path.pdf",
+        },
+        {
+          id: 3,
+          name: "CS50x-Cert.pdf",
+          icon: "/images/pdf.png",
+          kind: "file",
+          position: "top-10 left-80",
+          fileType: "pdf",
+          // you can add `href` if you want to open a hosted resume
+          // href: "/your/resume/path.pdf",
+        },
+        {
+          id: 4,
+          name: "CS50P-Cert.pdf",
+          icon: "/images/pdf.png",
+          kind: "file",
+          position: "top-60 right-5",
+          fileType: "pdf",
+          // you can add `href` if you want to open a hosted resume
+          // href: "/your/resume/path.pdf",
+        },
+      ],
+    },
+    {
+      id: 2,
+      name: "Kenyatta University",
+      icon: "/images/folder.png",
+      kind: "folder",
+      position: "top-10 left-80",
+      windowPosition: "top-[60vh] right-7",
+      children: [
+        {
+          id: 1,
+          name: "KU-cert-transcripts.pdf",
+          icon: "/images/pdf.png",
+          kind: "file",
+          position: "top-10 left-5",
+          fileType: "pdf",
+          // you can add `href` if you want to open a hosted resume
+          href: "/files/KU-cert-transcripts.pdf",
+        },
+      ]
+    }
+  ],
+};
+
 export const locations = {
   work: WORK_LOCATION,
   about: ABOUT_LOCATION,
   resume: RESUME_LOCATION,
-  trash: TRASH_LOCATION,
+  education: EDUCATION_LOCATION,
 };
+
 
 const INITIAL_Z_INDEX = 1000;
 

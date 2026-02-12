@@ -1,11 +1,12 @@
 import { Download } from "lucide-react"
 import { Document, Page, pdfjs } from 'react-pdf';
-import resumePdf from "/files/resume.pdf?url";
+import resumePdf from "/files/Resume.pdf?url";
 import { WindowControls } from "#components"
 import WindowWrapper from "#hoc/WindowWrapper"
 
 import 'react-pdf/dist/Page/AnnotationLayer.css';
 import 'react-pdf/dist/Page/TextLayer.css';
+import useWindowStore from "#store/window";
 
 pdfjs.GlobalWorkerOptions.workerSrc = new URL(
   'pdfjs-dist/build/pdf.worker.min.mjs',
@@ -13,18 +14,24 @@ pdfjs.GlobalWorkerOptions.workerSrc = new URL(
 ).toString();
 
 const Resume = () => {
+  const { windows } = useWindowStore();
+
+  const activeFileData = windows["resume"]?.data;
+
+  const fileUrl = activeFileData?.path ? `/files/${activeFileData.path}` : resumePdf;
+  
   return (
     <>
         <div id="window-header">
             <WindowControls target="resume" />
-            <h2>Resume.pdf</h2>
+            <h2>{activeFileData?.path || "Resume.pdf"}</h2>
 
-            <a href={resumePdf} download className="cursor-pointer" title="Download Resume" >
+            <a href={fileUrl} download className="cursor-pointer" title="Download Resume" >
                 <Download className="icon" />
             </a>
         </div>  
 
-        <Document file={resumePdf} >
+        <Document file={fileUrl} >
             <Page pageNumber={1} renderTextLayer renderAnnotationLayer />
         </Document>
     </>

@@ -3,7 +3,7 @@ import { WindowControls } from '#components'
 import { locations } from '#constants'
 import { SlideWrapper } from '#hoc'
 import clsx from 'clsx'
-import { Folder, Search } from 'lucide-react'
+import { FileCode, FileText, Folder, Search } from 'lucide-react'
 import useSlideStore from '#store/slide'
 import useMobileLocationStore from '#store/mobile-location'
 
@@ -68,7 +68,7 @@ const MobileFinder = () => {
   );
 
   const openItem = (item) => {
-    if (item.fileType === 'pdf') return openSlide('mobile_resume', item);
+    if (item.fileType === 'pdf') return openSlide('mobile_resume', { path: item.name });
     if (item.kind === 'folder') return setActiveLocation(item);
     if (['fig', 'url'].includes(item.fileType) && item.href) return handleExternalOpen(item.href);
 
@@ -114,7 +114,20 @@ const MobileFinder = () => {
                 >
                   <div className="w-full h-36 bg-gray-100 rounded-md overflow-hidden">
                     {item.kind === 'folder' ? (
-                      <Folder className="w-full h-full" aria-hidden="true" focusable="false" />
+                      <div className="relative w-full h-full bg-neutral-50 flex items-center justify-center">
+                        <Folder className="w-12 h-12 text-cyan-500 opacity-80" aria-hidden="true" focusable="false" />
+                        <div className="absolute bottom-2 right-2 bg-blue-500 text-[8px] text-white px-1 rounded font-bold">Folder</div>
+                      </div>
+                    ) : item.fileType === 'pdf' ? (
+                      <div className="relative w-full h-full bg-red-50 flex items-center justify-center">
+                        <FileText className="w-12 h-12 text-red-500 opacity-80" aria-hidden="true" focusable="false" />
+                        <div className="absolute bottom-2 right-2 bg-red-500 text-[8px] text-white px-1 rounded font-bold">PDF</div>
+                      </div>
+                    ) : item.fileType === 'txt' ? (
+                      <div className="relative w-full h-full bg-blue-50 flex items-center justify-center">
+                        <FileCode className="w-12 h-12 text-blue-500 opacity-80" aria-hidden="true" focusable="false"/>
+                        <div className="absolute bottom-2 right-2 bg-blue-500 text-[8px] text-white px-1 rounded font-bold">TXT</div>
+                      </div>
                     ) : (
                       <img
                         src={item.imageUrl || item.icon}
