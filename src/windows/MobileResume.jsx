@@ -1,7 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react'
 import { Download } from 'lucide-react'
 import { Document, Page, pdfjs } from 'react-pdf'
-import resumePdf from '/files/Resume.pdf'
 import { WindowControls } from '#components'
 import { SlideWrapper } from '#hoc'
 
@@ -21,7 +20,7 @@ const MobileResume = () => {
 
   const activeFileData = slides["mobile_resume"]?.data;
   
-  const fileUrl = activeFileData?.path ? `/files/${activeFileData.path}` : resumePdf;
+  const fileUrl = activeFileData?.path ? `/files/${activeFileData.path}` : "/files/Resume.pdf";
   console.log(fileUrl)
 
   useEffect(() => {

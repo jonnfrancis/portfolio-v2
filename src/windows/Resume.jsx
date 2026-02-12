@@ -1,6 +1,5 @@
 import { Download } from "lucide-react"
 import { Document, Page, pdfjs } from 'react-pdf';
-import resumePdf from "/files/Resume.pdf";
 import { WindowControls } from "#components"
 import WindowWrapper from "#hoc/WindowWrapper"
 
@@ -18,7 +17,7 @@ const Resume = () => {
 
   const activeFileData = windows["resume"]?.data;
 
-  const fileUrl = activeFileData?.path ? `/files/${activeFileData.path}` : resumePdf;
+  const fileUrl = activeFileData?.path ? `/files/${activeFileData.path}` : "/files/Resume.pdf";
   
   return (
     <>
