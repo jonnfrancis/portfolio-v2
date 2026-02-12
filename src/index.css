@@ -17,7 +17,7 @@ body {
 @media (max-width: 768px) {
   html,
   body {
-    background-image: url("/images/wallpaper-mobile.jpeg");
+    background-image: url("/images/wallpaper-mobile.webp");
     /* keep same sizing behavior for consistent look */
     background-size: cover;
     background-position: center;

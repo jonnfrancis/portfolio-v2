@@ -42,7 +42,7 @@ const MobileWelcome = () => {
         </div>
       </div>
       
-      <div className="mt-8 space-y-4 max-w-60">
+      <div className="mt-12 space-y-4 max-w-60">
         <p className="reveal-sub text-lg leading-snug text-neutral-800 font-medium">
           Building high-fidelity digital systems.
         </p>
