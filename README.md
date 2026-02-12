@@ -1,16 +1,62 @@
-# React + Vite
+# John Francis — Full-Stack Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A macOS-inspired interactive portfolio built with modern web technologies, featuring a desktop-like UI with draggable windows, a Finder-style file browser, and smooth animations.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Tech Stack
 
-## React Compiler
+- **Frontend**: React.js, Next.js, TypeScript, Vanilla.js
+- **Styling**: Tailwind CSS, Sass, CSS
+- **UI/UX Design**: Figma, Canva, Dribbble
+- **Backend**: Django, Node.js, Flask, Jaclang
+- **Motion & 3D**: GSAP, Framer Motion, Lottie, Three.js
+- **Database**: MongoDB, PostgreSQL, Prisma
+- **Dev Tools**: Git, GitHub, Docker, Coolify [1](#0-0) 
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## Featured Projects
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### 🌱 BioafriSolns Ecommerce Web App
+- Clean, modern platform showcasing sustainable bioenergy solutions with motion-driven storytelling.
+- Built with Next.js and Tailwind CSS; optimized for performance and accessibility.
+- [Live site](https://www.bioafrisolns.org/) • [Design](https://www.figma.com/design/3lKcEXUsZHXXY5NQF3rH3B/BioAfri-Soln?m=auto&t=cAkLq3YaBKAZZeEw-1) [2](#0-1) 
+
+### 🛍️ UrbanKikapu Ecommerce Web App
+- Premium e-commerce for electronics in Kenya with Pay on Delivery, WhatsApp ordering, and M-Pesa/Airtel Money.
+- Mobile-first, SEO-optimized, and scalable for multi-category expansion.
+- [Design](https://www.figma.com/design/rLH4RFycdhekb76vg5MtOv/Urban-Kikapu?m=auto&t=cAkLq3YaBKAZZeEw-6) [3](#0-2) 
+
+### ☁️ StoreIt Cloud Storage App
+- Secure cloud storage with OTP-based authentication via Appwrite; 2GB free storage per user.
+- Supports multi-format file previews and email-based sharing.
+- [Live app](https://storage-management-sigma.vercel.app/) • [GitHub](https://github.com/jonnfrancis/storage-management) [4](#0-3) 
+
+---
+
+## Architecture Highlights
+
+- **Finder & File System**: Simulated hierarchical file browser with location state managed by Zustand + Immer (`useLocationStore`). Supports folders, text, images, PDFs, URLs, and Figma links.
+- **Window Management**: Draggable windows with `WindowWrapper` and mobile slides with `SlideWrapper`.
+- **State Management**: Zustand for location and window state; Immer for immutable updates. [5](#0-4) [6](#0-5) 
+
+---
+
+## Contact & Links
+
+- **GitHub**: https://github.com/jonnfrancis
+- **LinkedIn**: https://linkedin.com/in/john-francis-732259211
+- **Twitter/X**: https://x.com/jonnfrancis7
+- **Instagram**: https://instagram.com/johnfrancis.dev [7](#0-6) 
+
+---
+
+## Notes
+
+- The portfolio UI mimics macOS with a dock, draggable windows, and a Finder-style navigation system.
+- Projects are represented as folders containing `.txt` descriptions, live URLs, images, and Figma design files.
+- The same codebase supports both desktop (windowed) and mobile (slide-based) layouts.
+
+Wiki pages you might want to explore:
+- [Finder & File System Navigation (jonnfrancis/portfolio-v2)](/wiki/jonnfrancis/portfolio-v2#6.1)
