@@ -20,8 +20,8 @@ const SlideWrapper = (Component, windowKey) => {
 
       gsap.fromTo(
         el,
-        { y: 200, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.36, ease: "power3.out" }
+        { y: 200, opacity: 0, scale: 0.9, borderRadius: 18, willChange: 'transform,opacity' },
+        { y: 0, opacity: 1, scale: 1, duration: 0.4, ease: 'power3.out' }
       );
     }, [isOpen]);
 
@@ -36,6 +36,12 @@ const SlideWrapper = (Component, windowKey) => {
         inertia: false,
         bounds: { minY: -window.innerHeight, maxY: window.innerHeight },
         onPress: () => focusSlide(windowKey),
+        onDrag: function () {
+          const y = this.y;
+          const t = Math.min(Math.abs(y) / 800, 0.06);
+          // subtle scale and rounding feedback
+          gsap.set(el, { scale: 1 - t, borderRadius: 18 + t * 12 });
+        },
         onDragEnd: function () {
           const threshold = 120; // px to drag to trigger close
           const y = this.y;
@@ -50,7 +56,8 @@ const SlideWrapper = (Component, windowKey) => {
             });
           } else {
             // snap back
-            gsap.to(el, { y: 0, duration: 0.22, ease: "power3.out" });
+            gsap.to(el, { y: 0, duration: 0.42, ease: 'elastic.out(1, 0.6)' });
+            gsap.to(el, { scale: 1, borderRadius: 18, duration: 0.32, ease: 'power3.out' });
           }
         },
       });
