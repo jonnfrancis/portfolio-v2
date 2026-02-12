@@ -1,6 +1,6 @@
 import { Download } from "lucide-react"
 import { Document, Page, pdfjs } from 'react-pdf';
-import resumePdf from "/files/Resume.pdf?url";
+import resumePdf from "/files/Resume.pdf";
 import { WindowControls } from "#components"
 import WindowWrapper from "#hoc/WindowWrapper"
 
