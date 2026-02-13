@@ -6,6 +6,7 @@ const useWindowStore = create(
     immer((set) => ({
         windows: WINDOW_CONFIG,
         nextZIndex: INITIAL_Z_INDEX + 1,
+        focusedWindow: null,
 
         openWindow: (windowKey, data=null) => set((state) => {
             const win = state.windows[windowKey];
@@ -27,8 +28,26 @@ const useWindowStore = create(
 
         focusWindow: (windowKey) => set((state) => {
             const win = state.windows[windowKey];
+            if (!win) return;
             win.zIndex = state.nextZIndex;
             state.nextZIndex ++;
+            state.focusedWindow = windowKey;
+        }),
+
+        // explicit focus API (sets focus without opening)
+        setFocusWindow: (windowKey) => set((state) => {
+            const win = state.windows[windowKey];
+            if (!win) {
+              state.focusedWindow = null;
+              return;
+            }
+            state.focusedWindow = windowKey;
+            win.zIndex = state.nextZIndex;
+            state.nextZIndex++;
+        }),
+
+        clearFocusWindow: () => set((state) => {
+            state.focusedWindow = null;
         })
 
     }))

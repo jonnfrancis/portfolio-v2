@@ -24,7 +24,7 @@ const MobileText = () => {
           <img
             src={image}
             alt={name}
-            className="w-full h-auto rounded mb-4"
+            className="w-[50%] mx-auto h-auto rounded-full mb-4"
             decoding="async"
             loading="eager"
           />

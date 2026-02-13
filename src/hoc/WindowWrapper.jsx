@@ -6,8 +6,9 @@ import { useLayoutEffect, useRef } from "react";
 
 const WindowWrapper = (Component, windowKey) => {
     const Wrapped = (props) => {
-        const { focusWindow, windows } = useWindowStore();
-        const { isOpen, zIndex } = windows[windowKey];
+        const { focusWindow, windows, setFocusWindow } = useWindowStore();
+        const win = windows[windowKey] || {};
+        const { isOpen = false, zIndex = 0, isMinimized = false, isMaximized = false } = win;
         const ref = useRef(null);
 
         useGSAP(() => {
@@ -34,10 +35,17 @@ const WindowWrapper = (Component, windowKey) => {
         useLayoutEffect(() => {
             const el = ref.current;
             if (!el) return;
-            el.style.display = isOpen ? "block" : "none";
-        }, [isOpen])
+            // hide when closed or minimized
+            el.style.display = (!isOpen || isMinimized) ? 'none' : 'block';
+        }, [isOpen, isMinimized])
 
-        return <section id={windowKey} ref={ref} style={{ zIndex }} className="absolute">
+        const handleFocus = () => {
+            if (setFocusWindow) setFocusWindow(windowKey)
+        }
+
+        const containerClass = `${isMaximized ? 'fixed inset-0' : 'absolute'} focus:outline-none focus-visible:ring-4 focus-visible:ring-sky-400/80 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900/40`;
+
+        return <section id={windowKey} ref={ref} style={{ zIndex, display: (!isOpen || isMinimized) ? 'none' : 'block' }} className={containerClass} onMouseDown={() => focusWindow(windowKey)} tabIndex={0} role="dialog" aria-label={`${windowKey} window`} onFocus={handleFocus}>
             <Component {...props} />
         </section>
     }

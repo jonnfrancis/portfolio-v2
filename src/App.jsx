@@ -1,6 +1,8 @@
 import gsap from "gsap"
 import { Draggable } from "gsap/Draggable"
 import { useEffect, useState } from "react"
+import useSlideStore from '#store/slide'
+import useWindowStore from '#store/window'
 import { Analytics } from "@vercel/analytics/react"
 import { SpeedInsights } from "@vercel/speed-insights/react"
 
@@ -16,6 +18,51 @@ const App = () => {
     const handleResize = () => setMobile(window.innerWidth <= 768)
     window.addEventListener("resize", handleResize)
     return () => window.removeEventListener("resize", handleResize)
+  }, [])
+
+  // Global keyboard handler: Escape closes topmost slide, then topmost window.
+  useEffect(() => {
+    const isEditable = (el) => {
+      if (!el) return false
+      const tag = el.tagName
+      if (!tag) return false
+      const editable = el.getAttribute && el.getAttribute('contenteditable')
+      return (
+        tag === 'INPUT' ||
+        tag === 'TEXTAREA' ||
+        editable === '' ||
+        editable === 'true'
+      )
+    }
+
+    const handler = (e) => {
+      if (e.key !== 'Escape') return
+      // don't intercept when focusing an editable field
+      if (isEditable(document.activeElement)) return
+
+      const slideState = useSlideStore.getState()
+      const slides = slideState.slides || {}
+      const openSlides = Object.entries(slides).filter(([, s]) => s && s.isOpen)
+      if (openSlides.length > 0) {
+        // close the highest zIndex slide
+        openSlides.sort((a, b) => (b[1].zIndex || 0) - (a[1].zIndex || 0))
+        const topKey = openSlides[0][0]
+        slideState.closeSlide(topKey)
+        return
+      }
+
+      const winState = useWindowStore.getState()
+      const wins = winState.windows || {}
+      const openWins = Object.entries(wins).filter(([, w]) => w && w.isOpen)
+      if (openWins.length > 0) {
+        openWins.sort((a, b) => (b[1].zIndex || 0) - (a[1].zIndex || 0))
+        const topWin = openWins[0][0]
+        winState.closeWindow(topWin)
+      }
+    }
+
+    window.addEventListener('keydown', handler)
+    return () => window.removeEventListener('keydown', handler)
   }, [])
 
   return (
