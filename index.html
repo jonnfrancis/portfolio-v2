@@ -1,13 +1,80 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>John Francis' Developer Portfolio</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>John Francis' Developer Portfolio</title>
+  <meta name="description"
+    content="John Francis — Full-stack developer. Interactive portfolio with macOS-inspired UI, draggable windows, Finder-style file browser, and project showcases." />
+    
+  <link rel="canonical" href="https://jonnfrancis.dev/" />
+  <link rel="alternate" href="https://jonnfrancis.dev/" hreflang="en" />
+  <link rel="alternate" href="https://jonnfrancis.dev/" hreflang="en-US" />
+  <link rel="alternate" href="https://jonnfrancis.dev/" hreflang="x-default" />
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="John Francis' Developer Portfolio" />
+  <meta property="og:description"
+    content="Interactive portfolio: macOS-inspired UI, draggable windows, Finder-like file browser, and projects by John Francis." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://jonnfrancis.dev/" />
+  <meta property="og:image" content="https://jonnfrancis.dev/images/og-image.png" />
+  <meta property="og:image:alt" content="John Francis — Full-stack Developer" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@jonnfrancis7" />
+  <meta name="twitter:creator" content="@jonnfrancis7" />
+  <meta name="twitter:title" content="John Francis' Developer Portfolio" />
+  <meta name="twitter:description"
+    content="Interactive portfolio with macOS-inspired UI, draggable windows, and project showcases." />
+  <meta name="twitter:image" content="https://jonnfrancis.dev/images/og-image.png" />
+
+  <!-- JSON-LD structured data -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Person",
+          "@id": "#person",
+          "name": "John Francis",
+          "url": "https://jonnfrancis.dev/",
+          "jobTitle": "Full-Stack Developer",
+          "description": "Full-stack developer portfolio showcasing interactive UI demos and projects.",
+          "sameAs": [
+            "https://github.com/jonnfrancis",
+            "https://linkedin.com/in/john-francis-732259211",
+            "https://x.com/jonnfrancis7",
+            "https://instagram.com/johnfrancis.dev"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "#website",
+          "name": "John Francis | Full-Stack Portfolio",
+          "url": "https://jonnfrancis.dev/",
+          "publisher": { "@id": "#person" }
+        },
+        {
+          "@type": "WebPage",
+          "@id": "#homepage",
+          "url": "https://jonnfrancis.dev/",
+          "name": "John Francis' Developer Portfolio",
+          "isPartOf": { "@id": "#website" },
+          "about": { "@id": "#person" }
+        }
+      ]
+    }
+    </script>
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/main.jsx"></script>
+</body>
+
 </html>

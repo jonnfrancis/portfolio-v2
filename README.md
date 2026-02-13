@@ -58,5 +58,14 @@ A macOS-inspired interactive portfolio built with modern web technologies, featu
 - Projects are represented as folders containing `.txt` descriptions, live URLs, images, and Figma design files.
 - The same codebase supports both desktop (windowed) and mobile (slide-based) layouts.
 
+## SEO, Social & Testing Notes
+
+- Structured data: JSON-LD for `Person`, `WebSite`, and `WebPage` is injected in `index.html` to improve search visibility.
+- Open Graph / Twitter meta tags added to `index.html` and a social preview image placed at `public/images/og-image.png` (generated from `og-image.svg`).
+- `public/sitemap.xml` and `public/robots.txt` were added. If your production domain differs from `https://jonnfrancis.dev/`, update those files accordingly.
+- Testing: see `TESTING.md` for a manual QA checklist and recommended automated test setup (Vitest + Testing Library).
+
+If you want CI automation, consider adding a build step to run `npm run generate:og` (generates the PNG) and to run Lighthouse during deploy.
+
 Wiki pages you might want to explore:
 - [Finder & File System Navigation (jonnfrancis/portfolio-v2)](/wiki/jonnfrancis/portfolio-v2#6.1)

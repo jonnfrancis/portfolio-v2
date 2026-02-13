@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://jonnfrancis.dev/sitemap.xml
+Host: jonnfrancis.dev
