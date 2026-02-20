@@ -38,6 +38,22 @@ const useSlideStore = create(
         s.data = null
       }),
 
+    // Request an animated close: mark slide as closing. SlideWrapper will run animation then call closeSlide.
+    requestCloseSlide: (slideKey) =>
+      set((state) => {
+        const s = state.slides[slideKey]
+        if (!s) return
+        s.isClosing = true
+      }),
+
+    // Clear closing flag (used by SlideWrapper after animation)
+    clearClosingFlag: (slideKey) =>
+      set((state) => {
+        const s = state.slides[slideKey]
+        if (!s) return
+        s.isClosing = false
+      }),
+
     focusSlide: (slideKey) =>
       set((state) => {
         const s = state.slides[slideKey]

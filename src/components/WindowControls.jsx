@@ -14,10 +14,12 @@ const WindowControls = ({ target, storeType = 'window' }) => {
     return () => window.removeEventListener('resize', onResize)
   }, [])
 
+  const { requestCloseSlide } = useSlideStore();
+
   const handleClose = useCallback(() => {
-    if (storeType === 'slide') return closeSlide(target)
+    if (storeType === 'slide') return requestCloseSlide ? requestCloseSlide(target) : closeSlide(target)
     return closeWindow(target)
-  }, [storeType, target, closeSlide, closeWindow])
+  }, [storeType, target, closeSlide, closeWindow, requestCloseSlide])
 
   if (mobile) {
     return (

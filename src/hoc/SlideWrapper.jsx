@@ -31,25 +31,6 @@ const SlideWrapper = (Component, windowKey) => {
 
         gsap.to(backdrop, { autoAlpha: 1, duration: 0.32, ease: 'power3.out' });
         gsap.to(el, { y: 0, opacity: 1, scale: 1, duration: 0.36, ease: 'power3.out' });
-      } else {
-        // close: animate down then hide
-        gsap.killTweensOf([el, backdrop]);
-        gsap.to(backdrop, { autoAlpha: 0, duration: 0.22, ease: 'power2.in' });
-        gsap.to(el, {
-          y: 220,
-          opacity: 0,
-          duration: 0.28,
-          ease: 'power2.in',
-          onComplete: () => {
-            try {
-              el.style.display = 'none';
-              backdrop.style.display = 'none';
-              // gsap.set(el, { clearProps: 'all' });
-            } catch (e) {
-              if (import.meta.env.DEV) console.debug("Post-close cleanup error", e);
-            }
-          },
-        });
       }
     }, [isOpen]);
 
@@ -57,7 +38,7 @@ const SlideWrapper = (Component, windowKey) => {
     useGSAP(() => {
       const el = ref.current;
       const backdrop = backdropRef.current;
-      if (!el) return;
+      if (!el || !backdrop) return;
 
       const header = el.querySelector('#window-header') || el;
 
@@ -159,6 +140,29 @@ const SlideWrapper = (Component, windowKey) => {
       };
     }, [closeSlide, focusSlide, hapticsEnabled, windowKey]);
 
+    // Animate when a close is requested via the store (e.g., X button)
+    useEffect(() => {
+      const closing = slide.isClosing;
+      if (!closing) return;
+      const el = ref.current;
+      const backdrop = backdropRef.current;
+      if (!el || !backdrop) return;
+
+      gsap.killTweensOf([el, backdrop]);
+      gsap.to(backdrop, { autoAlpha: 0, duration: 0.22, ease: 'power2.in' });
+      gsap.to(el, {
+        y: window.innerHeight,
+        opacity: 0,
+        duration: 0.5,
+        ease: 'power1.in',
+        onComplete: () => {
+          const { clearClosingFlag, closeSlide } = useSlideStore.getState();
+          clearClosingFlag && clearClosingFlag(windowKey);
+          closeSlide && closeSlide(windowKey);
+        }
+      });
+    }, [slide.isClosing]);
+
     useLayoutEffect(() => {
       const el = ref.current;
       if (!el) return;
@@ -179,7 +183,7 @@ const SlideWrapper = (Component, windowKey) => {
         <div
           ref={backdropRef}
           onClick={onBackdropClick}
-          style={{ zIndex: Math.max(0, zIndex - 1) }}
+          style={{ zIndex: Math.max(0, zIndex - 1), display: isOpen ? 'block' : 'none' }}
           className="fixed inset-0 bg-black/30 backdrop-blur-sm pointer-events-auto"
         />
 
@@ -187,7 +191,7 @@ const SlideWrapper = (Component, windowKey) => {
         <section
           id={windowKey}
           ref={ref}
-          style={{ zIndex: Number.isFinite(zIndex) ? zIndex : 0 }}
+          style={{ zIndex: Number.isFinite(zIndex) ? zIndex : 0, display: isOpen ? 'block' : 'none' }}
           className="absolute max-h-max inset-0 pointer-events-auto rounded-t-2xl bg-white/6 backdrop-blur-md shadow-lg overflow-hidden"
         >
           <Component {...props} />
