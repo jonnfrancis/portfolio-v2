@@ -419,7 +419,7 @@ const ABOUT_LOCATION = {
       kind: "file",
       fileType: "img",
       position: "top-28 right-72",
-      imageUrl: "/images/johnfrancis-2.png",
+      imageUrl: "/images/johnfrancis-4.jpg",
     },
     {
       id: 3,

@@ -61,10 +61,10 @@ const SlideWrapper = (Component, windowKey) => {
 
       const header = el.querySelector('#window-header') || el;
 
-      let instance = null;
+      let instances = null;
 
       try {
-        instance = Draggable.create(el, {
+        instances = Draggable.create(el, {
           type: "y",
           trigger: header,
           edgeResistance: 0.85,
@@ -80,7 +80,7 @@ const SlideWrapper = (Component, windowKey) => {
           },
           onDrag: function () {
             const y = this.y;
-            const t = Math.min(Math.abs(y) / 800, 0.06);
+            const t = Math.min(Math.max(y, 0) / 800, 0.06);
             // subtle scale and rounding feedback
             gsap.set(el, { scale: 1 - t, borderRadius: 18 + t * 12 });
 
@@ -103,7 +103,17 @@ const SlideWrapper = (Component, windowKey) => {
           onDragEnd: function () {
             const threshold = 120; // px to drag to trigger close
             const y = this.y;
-            if (y > threshold) {
+
+            let fastFlick = false;
+            try {
+              const dir = this.getDirection && this.getDirection("velocity");
+              const vy = dir && typeof dir.y === 'number' ? dir.y : 0;
+              fastFlick = this.endY > 0 && Math.abs(vy) > 0.65;
+            } catch (e) {
+              // ignore velocity errors
+              if (import.meta.env.DEV) console.debug("Velocity check error", e)
+            }
+            if (y > threshold || fastFlick) {
               try {
                 if (hapticsEnabled && haptics && haptics.impact) haptics.impact('medium')
               } catch (e) {
@@ -135,17 +145,19 @@ const SlideWrapper = (Component, windowKey) => {
       }
 
 
-      draggableRef.current = instance;
+      const inst = Array.isArray(instances) ? instances[0] : null; 
+      draggableRef.current = inst;
 
       return () => {
         try {
-          draggableRef.current && draggableRef.current.kill();
+          draggableRef.current?.kill();
+          gsap.killTweensOf([el, backdrop]);
         } catch (e) {
           // noop
           if (import.meta.env.DEV) console.debug("Draggable kill error", e);
         }
       };
-    }, [closeSlide]);
+    }, [closeSlide, focusSlide, hapticsEnabled, windowKey]);
 
     useLayoutEffect(() => {
       const el = ref.current;
