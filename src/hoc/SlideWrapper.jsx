@@ -85,16 +85,7 @@ const SlideWrapper = (Component, windowKey) => {
             const threshold = 120; // px to drag to trigger close
             const y = this.y;
 
-            let fastFlick = false;
-            try {
-              const dir = this.getDirection && this.getDirection("velocity");
-              const vy = dir && typeof dir.y === 'number' ? dir.y : 0;
-              fastFlick = this.endY > 0 && Math.abs(vy) > 0.65;
-            } catch (e) {
-              // ignore velocity errors
-              if (import.meta.env.DEV) console.debug("Velocity check error", e)
-            }
-            if (y > threshold || fastFlick) {
+            if (y > threshold ) {
               try {
                 if (hapticsEnabled && haptics && haptics.impact) haptics.impact('medium')
               } catch (e) {
