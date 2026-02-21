@@ -1,6 +1,7 @@
 import gsap from "gsap"
 import { Draggable } from "gsap/Draggable"
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
+import { useMediaQuery } from 'react-responsive'
 import useSlideStore from '#store/slide'
 import useWindowStore from '#store/window'
 import { Analytics } from "@vercel/analytics/react"
@@ -12,13 +13,7 @@ import { Terminal, MobileTerminal, MobileImage, Safari, Resume, Finder, Text, Mo
 gsap.registerPlugin(Draggable)
 
 const App = () => {
-  const [mobile, setMobile] = useState(() => window.innerWidth <= 768)
-
-  useEffect(() => {
-    const handleResize = () => setMobile(window.innerWidth <= 768)
-    window.addEventListener("resize", handleResize)
-    return () => window.removeEventListener("resize", handleResize)
-  }, [])
+  const mobile = useMediaQuery({ query: '(max-width: 768px)' })
 
   // Global keyboard handler: Escape closes topmost slide, then topmost window.
   useEffect(() => {
